@@ -1,0 +1,259 @@
+@use "sass:color";
+
+:global {
+  @keyframes postChangeBorder {
+    0%   { border-radius: 10px; }
+    100% { border-radius: 0; }
+  }
+}
+
+.modalContainer {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100dvh;
+	z-index: 3;
+}
+
+.modalWrapper {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 20px;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	transition: .3s cubic-bezier(0.25, 0.46, 0.45, 0.94) all;
+
+	&:has(.expanded) {
+		padding: 0;
+	}
+}
+
+.modal {
+	width: 550px;
+	height: auto;
+	background-color: var(--color-transparent-background);
+	border-radius: 10px;
+	color: var(--color-text);
+	transition: width .3s, height .3s, background-color .3s;
+	position: relative;
+	overflow: hidden;
+	padding: 30px;
+
+	@media screen and (max-width: 590px) {
+		width: 100%;
+		padding: 20px;
+	}
+
+	&.expanded {
+		animation: postChangeBorder .2s .4s forwards;
+		width: 100%;
+		height: 100% !important;
+		z-index: 3;
+		background-color: var(--color-background);
+	}
+}
+
+.login {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	position: relative;
+	width: 100%;
+	height: 100%;
+	
+	&.expanded {
+		justify-content: center;
+		align-items: center;
+	}
+
+	.content {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	
+
+	.form {
+		width: 100%;
+		margin-top: 20px;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.logo {
+		@media screen and (max-width: 330px) {
+			width: 100%;
+		}
+	}
+
+	input {
+		width: 100%;
+		height: 50px;
+		border-radius: 10px;
+		border: 1px solid var(--color-border);
+		padding: 0 10px;
+		margin-top: 20px;
+		font-size: 16px;
+		font-weight: 400;
+		color: var(--color-text);
+	
+		&:focus {
+			border-color: var(--color-text)
+		}
+	}
+
+	.authButton {
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		height: 50px;
+		border-radius: 10px;
+		background-color: var(--color-primary);
+		color: var(--color-background);
+		padding: 0 10px;
+		font-size: 18px;
+		font-weight: 700;
+		margin: 40px auto 20px;
+		transition: .2s all;
+
+		@media screen and (max-width: 600px) {
+			margin-bottom: 15px;
+		}
+
+		&:hover {
+			background-color: var(--color-primary-hover);
+		}
+	}
+
+	.forgotPassword {
+		display: flex;
+		align-items: center;
+		text-align: center;
+		gap: 5px;
+		justify-content: center;
+		width: fit-content;
+		font-size: 16px;
+		margin: 0 auto;
+		line-height: 1.4;
+
+		@media screen and (max-width: 600px) {
+			align-items: flex-start;
+			font-size: 14px;
+		}
+
+		svg {
+			color: var(--color-text-secondary);
+			width: 20px;
+			height: 20px;
+			transition: color 0.2s ease;
+
+			@media screen and (max-width: 600px) {
+				width: 18px;
+				height: 18px;
+			}
+
+			&:hover {
+				color: var(--color-text);
+			}
+		}
+	}
+
+	.or {
+		position: relative;
+		text-align: center;
+		width: 100%;
+		margin: 30px 0;
+		font-size: 16px;
+		font-weight: 400;
+		color: var(--color-text-secondary);
+
+		@media (max-width: 600px) {
+			margin: 20px 0;
+		}
+
+		&::before {
+			content: '';
+			position: absolute;
+			display: block;
+			width: calc(50% - 30px);
+			height: 1px;
+			background-color: var(--color-text-secondary);
+			top: 0;
+			bottom: 0;
+			left: 0;
+			margin: auto;
+		}
+
+		&::after {
+			content: '';
+			position: absolute;
+			display: block;
+			width: calc(50% - 30px);
+			height: 1px;
+			background-color: var(--color-text-secondary);
+			top: 0;
+			bottom: 0;
+			right: 0;
+			margin: auto;
+		}
+
+		span {
+			line-height: 1.2;
+		}
+	}
+	
+	.socials {
+		display: flex;
+		gap: 10px;
+		width: 100%;
+
+		button {
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 10px;
+			height: 50px;
+			border-radius: 10px;
+			border: 1px solid var(--color-text);
+			padding: 0 10px;
+			font-size: 16px;
+			font-weight: 400;
+			color: var(--color-text);
+			width: 100%;
+			transition: all 0.2s ease;
+
+			&:hover {
+				background-color: var(--color-text);
+				color: var(--color-background);
+			}
+
+			svg {
+				width: 20px;
+				height: 20px;
+			}
+		}
+	}
+}
+
+.content {
+	opacity: 1;
+	width: 100%;
+	transition: all .2s ease;
+	
+	&.hidden {
+		opacity: 0;
+		pointer-events: none;
+	}
+}

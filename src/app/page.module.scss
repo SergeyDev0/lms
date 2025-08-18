@@ -1,0 +1,93 @@
+.indent {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	@media screen and (max-width: 590px) {
+		padding: 0;
+	}
+
+	@keyframes fadeIn {
+		0% {
+			visibility: hidden;
+			width: 0%;
+			height: 0%;
+		}
+		100% {
+			visibility: visible;
+			height: 100%;
+			width: 100%;
+		}
+	}
+
+	& > .page {
+		visibility: hidden;
+		width: 0%;
+		height: 0%;
+		background-color: var(--color-transparent-background);
+		backdrop-filter: blur(5px);
+		border-radius: 10px;
+		transition: .2s ease all;
+
+		@media screen and (max-width: 600px) {
+			border-radius: 0;
+			width: 100%;
+			height: 100%;
+			visibility: visible;
+			transition: 0s all ease;
+		}
+	
+		& > .wrapper {
+			transition: .4s all ease;
+			visibility: hidden;
+			opacity: 0;
+			width: 100%;
+			height: 100%;
+	
+			&.isVisible {
+				visibility: visible;
+				opacity: 1;
+			}
+	
+			& > .content {
+				display: flex;
+				transition: .2s .2s all ease;
+				visibility: hidden;
+				opacity: 0;
+				height: 100%;
+				width: 100%;
+				display: flex;
+
+				@media screen and (max-width: 600px) {
+					transition: .2s 0s all ease;
+				}
+	
+				&.isVisible {
+					visibility: visible;
+					opacity: 1;
+				}
+
+				& > .sidebar {
+					height: 100%;
+					width: 350px;
+					background-color: var(--color-transparent-background);
+					flex-shrink: 0;
+				}
+
+				& > .main {
+					flex-grow: 1;
+				}
+			}
+		}
+	
+		&.isLoaded {
+			border-radius: 0;
+
+			@media screen and (min-width: 590px) {
+				animation: fadeIn .4s .7s ease forwards;
+			}
+		}
+	}
+}

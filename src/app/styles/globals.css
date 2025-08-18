@@ -1,0 +1,147 @@
+/* iOS Safari поддержка */
+@supports (-webkit-touch-callout: none) {
+  :root {
+    /* Принудительно устанавливаем светлую тему для iOS */
+    color-scheme: light;
+  }
+  
+  [data-theme="light"] {
+    color-scheme: light;
+  }
+  
+  [data-theme="dark"] {
+    color-scheme: dark;
+  }
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	border: none;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+a, a:link, a:visited  {
+    text-decoration: none;
+}
+
+a:hover  {
+    text-decoration: none;
+}
+
+aside, nav, footer, header, section, main {
+	display: block;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  font-size: inherit;
+	font-weight: inherit;
+	margin: 0;
+}
+
+ul, ul li {
+	list-style: none;
+}
+
+img {
+	vertical-align: top;
+}
+
+img, svg {
+	max-width: 100%;
+	height: auto;
+}
+
+address {
+  font-style: normal;
+}
+
+input, textarea, button, select {
+	font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background-color: transparent;
+}
+
+input::-ms-clear {
+	display: none;
+}
+
+button, input[type="submit"] {
+    display: inline-block;
+    box-shadow: none;
+    background-color: transparent;
+    background: none;
+    cursor: pointer;
+}
+
+input:focus, input:active,
+button:focus, button:active {
+    outline: none;
+}
+
+button::-moz-focus-inner {
+	padding: 0;
+	border: 0;
+}
+
+label {
+	cursor: pointer;
+}
+
+legend {
+	display: block;
+}
+
+input[type='file'] {
+	max-width: 100%;
+}
+
+body, button, input, textarea, input::placeholder {
+	font-family: var(--nunito);
+}
+
+input::placeholder {
+	color: var(--color-text-secondary);
+}
+
+body {
+	background-color: var(--color-background);
+	color: var(--color-text);
+}
+
+:root {
+  --color-primary: #ffb14c;
+  --color-primary-rgb: 255, 177, 76;
+	--color-primary-hover: rgb(214, 139, 19);
+  --color-secondary: #2b2638;
+  --color-text: #fff;
+  --color-text-secondary: #a6a6a6;
+  --color-border: #d1d1d1;
+  --color-background: rgb(43, 38, 56);
+	--color-transparent-background: rgba(43, 38, 56, .8);
+	--color-transparent-background-light: rgba(255, 255, 255, .8);
+  --background-image: url('/background-day.webp');
+
+}
+
+[data-theme="light"] {
+  --color-primary: #ff9f19;
+  --color-primary-rgb: 235, 154, 23;
+  --color-secondary: #f5f5f5;
+  --color-text: #2b2638;
+  --color-text-secondary: #666;
+  --color-background: #f8f9fa;
+	--color-transparent-background: rgba(255, 255, 255, .85);
+}
+
+[data-theme="dark"] {
+	--color-primary-hover: #eb9e21;
+	--color-transparent-background-light: rgba(73, 64, 94, 0.8);
+  --background-image: url('/background-night.webp');
+} 

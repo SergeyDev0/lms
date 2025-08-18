@@ -1,0 +1,75 @@
+.header {
+	width: 100%;
+	padding: 10px 20px; 
+	height: fit-content;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	
+	& > .profile {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		padding: 10px 15px;
+		border-radius: 10px;
+		transition: .2s ease all;
+
+		&:hover {
+			background-color: var(--color-transparent-background-light);
+		}
+
+		& > svg {
+			width: 40px;
+			height: 40px;
+
+			& path {
+				transition: stroke .2s ease-out, fill .2s ease-out;
+				stroke: var(--color-text);
+			}
+
+			& .fill {
+				fill: var(--color-text);
+			}
+		}
+
+		& > .col {
+			display: flex;
+			flex-direction: column;
+			text-align: left;
+
+			& > h3 {
+				transition: color .2s ease-out;
+				font-size: 18px;
+				font-weight: 600;
+				color: var(--color-text);
+			}
+			
+			& > p {
+				transition: color .2s ease-out;
+				font-size: 14px;
+				color: var(--color-text-secondary);
+			}
+		}
+	}
+
+	& > .themeToggle {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+		font-size: 20px;
+		transition: .4s ease all;
+		background-color: var(--color-transparent-background-light);
+
+		&:hover {
+			background-color: var(--color-transparent-background);
+			transform: scale(1.05);
+		}
+
+		&:active {
+			transform: scale(0.95);
+		}
+	}
+}
