@@ -6,7 +6,7 @@
   flex-shrink: 0;
   width: 83px;
   transition: width 0.3s cubic-bezier(0.4,0,0.2,1);
-  border-right: 1px solid var(--color-transparent-background-light);
+  border-right: 1px solid var(--color-border);
 
   &.open {
     width: 300px;
@@ -47,7 +47,7 @@
     align-items: center;
     white-space: nowrap;
     position: relative;
-    transition: width 0.3s cubic-bezier(0.4,0,0.2,1), .2s color ease-in-out;
+    transition: .3s all cubic-bezier(0.4,0,0.2,1);
     color: var(--color-text);
     z-index: 0;
 
@@ -71,12 +71,12 @@
       color: var(--color-primary);
     }
 
-    svg {
+    & svg {
       display: block;
       width: 32px;
       height: 32px;
       flex-shrink: 0;
-			stroke-width: 2;
+			stroke-width: 1.8;
     }
 
     span {

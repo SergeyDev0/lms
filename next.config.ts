@@ -4,15 +4,15 @@ const nextConfig: NextConfig = {
   experimental: {
     forceSwcTransforms: true,
     // Включаем турбо режим для ускорения сборки
-    turbo: {
-      rules: {
-        '*.svg': {
-          loaders: ['@svgr/webpack'],
-          as: '*.js',
-        },
-      },
-    },
   },
+	turbopack: {
+		rules: {
+			'*.svg': {
+				loaders: ['@svgr/webpack'],
+				as: '*.js',
+			},
+		},
+	},
   // Отключаем генерацию source maps в production для ускорения
   productionBrowserSourceMaps: false,
   // Оптимизируем изображения

@@ -45,21 +45,21 @@ const Login = (): React.ReactElement => {
 	          <div className={`${styles.content} ${isContentHidden ? styles.hidden : ''}`}>
 	            <Image
 	              className={styles.logo}
-	              src={theme === "light" ? "/logo-c.svg" : "/logo-cc.svg"}
+	              src={theme === "light" ? "/logo-w.svg" : "/logo-cc.svg"}
 	              alt="logo"
 	              width={350}
 	              height={100}
 	            />
 	            <form className={styles.form} onSubmit={handleSubmit}>
-	              <input type="text" placeholder="Введите логин или email" />
-	              <input type="password" placeholder="Введите пароль" />
+	              <input type="text" placeholder="Логин или email" />
+	              <input type="password" placeholder="Пароль" />
 	              <button type="submit" className={styles.authButton}>
 	                Войти
 	              </button>
 	              <div
 	                className={styles.forgotPassword}
 	                data-tooltip-id="forgot-password"
-	                data-tooltip-place="right-start"
+	                data-tooltip-place="bottom"
 	                data-tooltip-content="Для восстановления пароля или регистрации, обратитесь к администратору"
 	                data-tooltip-variant={theme === 'light' ? 'dark' : 'light'}
 	              >
@@ -67,7 +67,7 @@ const Login = (): React.ReactElement => {
 	                <Tooltip
 	                  id="forgot-password"
 	                  style={{
-	                    width: 320,
+	                    width: 350,
 	                    lineHeight: 1.2,
 	                    zIndex: 2,
 	                  }}

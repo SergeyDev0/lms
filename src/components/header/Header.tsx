@@ -1,7 +1,6 @@
 import React, { ReactElement } from "react";
-import { useTheme } from "@/shared/hooks/useTheme";
-import Image from "next/image";
 import styles from "./Header.module.scss";
+import SwitchThemeButton from "../switchThemeButton/SwitchThemeButton";
 
 const UserIcon = (): ReactElement => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -12,27 +11,16 @@ const UserIcon = (): ReactElement => (
 );
 
 const Header = (): ReactElement => {
-	const { theme, toggleTheme, setThemeMode, mounted } = useTheme();
-
-	if(!mounted) return <></>;
-	
-	const handleThemeToggle = () => {
-		toggleTheme();
-		
-		setTimeout(() => {
-			document.documentElement.setAttribute('data-theme', theme === 'light' ? 'dark' : 'light');
-		}, 100);
-	};
-	
 	return (
 		<header className={styles.header}>
-			<button className={styles.profile} onClick={handleThemeToggle}>
+			<button className={styles.profile}>
 				<UserIcon />
 				<div className={styles.col}>
 					<h3>Вячеслав</h3>
 					<p>ИП-223</p>
 				</div>
 			</button>
+			<SwitchThemeButton />
 		</header>
 	)
 };

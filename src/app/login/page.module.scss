@@ -46,6 +46,7 @@
 	position: relative;
 	overflow: hidden;
 	padding: 30px;
+	backdrop-filter: blur(8px);
 
 	@media screen and (max-width: 590px) {
 		width: 100%;
@@ -100,7 +101,7 @@
 		height: 50px;
 		border-radius: 10px;
 		border: 1px solid var(--color-border);
-		padding: 0 10px;
+		padding: 0 16px;
 		margin-top: 20px;
 		font-size: 16px;
 		font-weight: 400;

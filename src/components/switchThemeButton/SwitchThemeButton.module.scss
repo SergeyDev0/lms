@@ -1,0 +1,91 @@
+$h: 36px;
+$w: 80px;
+$knob: 31px;
+$r: $h / 2;
+$pad: ($h - $knob) / 2;
+
+.toggle {
+  -webkit-tap-highlight-color: transparent;
+
+  position: relative;
+  width: $w;
+  height: $h;
+  border: 0;
+  padding: 0;
+  border-radius: $r;
+  cursor: pointer;
+  outline: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: filter .2s ease, transform .06s ease;
+}
+
+.off {
+	background: var(--color-transparent-background-light);
+
+
+  .knob {
+    background: var(--color-text);
+    transform: translateX($w - $knob - $pad * 2);
+  }
+
+  .iconSun { opacity: 1; transform: translateX(-2px) scale(1); }
+  .iconMoon { opacity: 0; transform: translateX(12px) scale(.6); }
+}
+
+.on {
+  $track: var(--color-transparent-background-light);
+  
+  background: $track;
+
+  .knob {
+    background: var(--color-text);
+    transform: translateX(0);
+  }
+
+  .iconSun { opacity: 0; transform: translateX(-8px) scale(.6); }
+  .iconMoon { opacity: 1; transform: translateX(6px) scale(1); }
+}
+
+.knob {
+  position: absolute;
+  left: $pad;
+  top: $pad;
+  width: $knob;
+  height: $knob;
+  border-radius: 999px;
+  transition: transform .36s cubic-bezier(.22,.61,.36,1), background .36s ease;
+  will-change: transform;
+}
+
+.iconSun, .iconMoon {
+  position: absolute;
+  width: $h * 0.66;
+  height: $h * 0.66;
+  transition: opacity .28s ease, transform .34s cubic-bezier(.22,.61,.36,1);
+  will-change: opacity, transform;
+  pointer-events: none;
+}
+
+.iconSun {
+  left: $h * 0.28;
+  svg { width: 100%; height: 100%; }
+  svg circle, svg line {
+    stroke: #2b2638; 
+		fill: none; 
+		stroke-width: 2; 
+		stroke-linecap: round;
+  }
+  svg circle { fill: #2b2638; }
+}
+
+.iconMoon {
+  right: $h * 0.28;
+  svg { width: 100%; height: 100%; fill: #ffffff; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toggle, .knob, .iconSun, .iconMoon { transition: none !important; }
+}

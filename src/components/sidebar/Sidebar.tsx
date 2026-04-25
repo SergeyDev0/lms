@@ -17,10 +17,10 @@ const Sidebar = (): ReactElement => {
       <nav className={styles.nav}>
         <ul className={styles.navList}>
           <li className={styles.navItem}>
-            <button onClick={() => setIsOpenSidebar(!isOpenSidebar)}>
+            <Link href="" onClick={() => setIsOpenSidebar(!isOpenSidebar)}>
               <AlignJustify />
               <span>Меню</span>
-            </button>
+            </Link>
           </li>
           <li className={styles.navItem}>
             <Link
@@ -30,7 +30,7 @@ const Sidebar = (): ReactElement => {
             >
               <Home />
               <span>Главная</span>
-            </Link>
+            </Link>	
           </li>
           <li className={styles.navItem}>
             <Link
